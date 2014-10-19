@@ -1,0 +1,13 @@
+{
+  "name": "om-shoppingcart",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "matchdep": "~0.3.0",
+    "grunt-express": "~1.4.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-open": "~0.2.3",
+    "grunt-longrunning": "0.0.0"
+  }
+}

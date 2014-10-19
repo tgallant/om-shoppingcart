@@ -1,0 +1,14 @@
+{
+  "name": "om-shoppingcart",
+  "version": "0.0.1",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "react": "~0.5.1",
+    "jquery": "latest",
+    "pure": "latest",
+    "components-font-awesome": "latest",
+    "jquery-dropdown": "~1.0.5",
+    "jquery-modal": "~0.5.2"
+  },
+  "devDependencies": {}
+}
