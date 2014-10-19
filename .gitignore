@@ -2,6 +2,8 @@
 /classes
 /checkouts
 resources/public/bower_components
+resources/public/scripts/out
+resources/public/scripts/main.js
 node_modules
 pom.xml
 pom.xml.asc

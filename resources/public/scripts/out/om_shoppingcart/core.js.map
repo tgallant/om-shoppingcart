@@ -1,7 +1,0 @@
-{"version":3,
- "file":
- "/home/tim/projects/om-shoppingcart/resources/public/scripts/out/om_shoppingcart/core.js",
- "sources":["core.cljs"],
- "lineCount":13,
- "mappings":";AAAA;;;;;;;;AAKA,AAACA;AAED,YAAA,ZAAMC",
- "names":["cljs.core/enable-console-print!", "js/console"]}
