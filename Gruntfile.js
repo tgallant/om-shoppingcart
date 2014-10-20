@@ -1,14 +1,10 @@
 // Gruntfile with the configuration of grunt-express and grunt-open. No livereload yet!
 module.exports = function(grunt) {
  
+  require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+
   // Configure Grunt
   grunt.initConfig({
-
-      longrunning: {
-        cljs: {
-            commands: [{options: {cmd: "lein", args: ["cljsbuild", "auto"]}}]
-        }
-      },
 
       // grunt-express will serve the files from the folders listed in `bases`
       // on specified `port` and `hostname`
@@ -34,9 +30,7 @@ module.exports = function(grunt) {
           // or an Array of String for multiple entries
           // You can use globing patterns like `css/**/*.css`
           // See https://github.com/gruntjs/grunt-contrib-watch#files
-          files: ['resources/public/index.html',
-                  'resources/public/styles/*',
-                  'resources/public/scripts/*'],
+          files: ['resources/public/*'],
           options: {
             livereload: true
           }
@@ -47,19 +41,21 @@ module.exports = function(grunt) {
       open: {
         all: {
           // Gets the port from the connect configuration
-          path: 'http://localhost:<%= express.all.options.port%>'
+          path: 'http://127.0.0.1:<%= express.all.options.port%>'
         }
       }
   });
- 
-  grunt.loadNpmTasks('grunt-longrunning');
-  grunt.loadNpmTasks('grunt-express');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-open');
+
+  grunt.registerTask('lein', 'compile cljs.', function() {
+    var spawn = require('child_process').spawn;
+    grunt.log.writeln('Compiling cljs.');
+    var PIPE = {stdio: 'inherit'};
+    spawn('lein', ['cljsbuild', 'auto'], PIPE);
+  });
 
  // Creates the `server` task
   grunt.registerTask('server', [
-    'longrunning:cljs',
+    'lein',
     'express',
     'open',
     'watch'
